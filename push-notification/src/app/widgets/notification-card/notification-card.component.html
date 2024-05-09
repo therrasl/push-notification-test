@@ -1,0 +1,11 @@
+<div tuiCardMedium class="card">
+  <div class="title-line">
+   
+    <h2 tuiTitle class="title">
+      {{ notification.title }}
+    </h2>
+    <button class="deleteButton" (click)="onDeleteNotification()">x</button>
+  </div>
+  
+  <span tuiSubtitle class="subtitle">{{ notification.content }}</span>
+</div>

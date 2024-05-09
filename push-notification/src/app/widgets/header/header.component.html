@@ -1,0 +1,21 @@
+<header class="header">
+  <a
+    class="router-link"
+    [routerLink]="['/']"
+    routerLinkActive="router-link-active"
+  >
+    <p>Main</p>
+  </a>
+  <a
+    class="router-link"
+    [routerLink]="['/notifications']"
+    routerLinkActive="router-link-active"
+  >
+    <p>
+      <tui-svg src="tuiIconMessageCircle"></tui-svg>
+      <span *ngIf="facade.current > 0"> {{ facade.current }}</span>
+      <span *ngIf="facade.current > 99"> 99+</span>
+    </p>
+  </a>
+</header>
+<router-outlet></router-outlet>

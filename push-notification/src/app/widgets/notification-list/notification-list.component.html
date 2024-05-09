@@ -1,0 +1,14 @@
+<div class="container">
+  <button class="archive-button" (click)="this.notificationFacade.archive()">
+    archive<tui-svg src="tuiIconArchive"></tui-svg>
+  </button>
+  <div class="notification-list">
+    <app-notification-card
+      [notification]="notification"
+      *ngFor="
+        let notification of notificationFacade.selectedNotifications | async
+      "
+      (id)="this.notificationFacade.delete($event)"
+    ></app-notification-card>
+  </div>
+</div>

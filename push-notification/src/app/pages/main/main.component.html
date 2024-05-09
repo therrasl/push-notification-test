@@ -1,0 +1,18 @@
+<div class="main-body">
+  <form [formGroup]="userNotification">
+    <tui-input input type="text" formControlName="title" placeholder="title">
+      Title
+      <input placeholder="Title" tuiTextfield />
+    </tui-input>
+    <tui-error formControlName="title" [error]="[] | tuiFieldError | async"> </tui-error>
+    <tui-input type="text" formControlName="content" placeholder="content">
+      Content
+      <input placeholder="Content" tuiTextfield />
+    </tui-input>
+  
+  <button [disabled]="!userNotification.valid" tuiButton class="main-button" (click)="sendNotification()">
+    send notification
+  </button>
+</form>
+  <app-notification></app-notification>
+</div>
