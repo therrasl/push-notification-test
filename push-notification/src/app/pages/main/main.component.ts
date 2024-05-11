@@ -23,7 +23,6 @@ import { NotificationComponent } from 'app/widgets/notification-push/notificatio
   selector: 'app-main',
   standalone: true,
   imports: [
-    NotificationComponent,
     ReactiveFormsModule,
     FormsModule,
     TuiButtonModule,
@@ -55,7 +54,5 @@ export class MainComponent {
       id: new Date().getTime(),
     };
     this.notificationFacade.add(message);
-    this.websoket.notification.next(message);
-    this.notificationFacade.current += 1;
   }
 }

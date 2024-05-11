@@ -7,11 +7,20 @@ import {
   loadNotificationsFailure,
   loadNotificationsSuccess,
 } from './notifications.actions';
-import { catchError, switchMap, withLatestFrom } from 'rxjs';
+import {
+  bufferCount,
+  catchError,
+  switchMap,
+  take,
+  takeUntil,
+  timer,
+  withLatestFrom,
+} from 'rxjs';
 import { WebSoketNotificationService } from '../services/web-soket-notification.service';
 import { map, of, tap } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectNotifications } from './notifications.select';
+import { INotification } from '../models/INotifications';
 export const loadNotificationsEffect$ = createEffect(
   () => {
     const actions$ = inject(Actions);

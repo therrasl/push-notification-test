@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NotificationsFacade } from 'app/shared/state/notifications.facade';
 import { Inject } from '@angular/core';
+import { WebSoketNotificationService } from 'app/shared/services/web-soket-notification.service';
 
 
 @Component({

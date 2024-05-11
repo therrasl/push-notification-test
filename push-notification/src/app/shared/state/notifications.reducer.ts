@@ -30,7 +30,7 @@ export const notificationsReducer = createReducer(
       (notification: INotification) => notification.id !== id
     ),
   })),
-  on(archiveNotifications,(state) => ({
-    notifications : []
+  on(archiveNotifications, (state) => ({
+    notifications: [],
   }))
 );

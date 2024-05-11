@@ -11,9 +11,11 @@ import { Inject } from '@angular/core';
 })
 export class WebSoketNotificationService {
   public notificationList: Subject<INotification[]>;
-  public notification: Subject<any>;
+  public notification: Subject<INotification>;
+  public notificationCount = 0;
   constructor(
-    @Inject(WebsoketService) private readonly wsService = Inject(WebsoketService)
+    @Inject(WebsoketService)
+    private readonly wsService = Inject(WebsoketService)
   ) {
     this.notificationList = new Subject<INotification[]>();
     this.notification = new Subject<INotification>();

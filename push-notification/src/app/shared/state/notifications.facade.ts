@@ -8,23 +8,26 @@ import {
   loadNotifications,
 } from './notifications.actions';
 import { INotification } from '../models/INotifications';
-
+import { WebSoketNotificationService } from '../services/web-soket-notification.service';
 
 @Injectable({ providedIn: 'root' })
 export class NotificationsFacade {
   private readonly store = inject(Store);
+  private readonly websoket = inject(WebSoketNotificationService);
   public selectedNotifications = this.store.select(selectNotifications);
-  public current = 0;
+ public count = 0
 
   get() {
     this.store.dispatch(loadNotifications());
   }
   add(notification: INotification) {
     this.store.dispatch(addNotification({ notification }));
+    this.websoket.notification.next(notification);
+    this.count += 1;
   }
   delete(id: number) {
     this.store.dispatch(deleteNotification({ id }));
-    this.current -= 1;
+    this.count -= 1;
   }
   getCurrentDate(): string {
     const now = new Date();
@@ -37,6 +40,6 @@ export class NotificationsFacade {
   }
   archive() {
     this.store.dispatch(archiveNotifications());
-    this.current = 0;
+    this.count = 0;
   }
 }

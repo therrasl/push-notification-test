@@ -10,10 +10,12 @@
   text-align: center;
   overflow: hidden;
 }
-.archive-button{
-   
+.archive-button {
   margin-top: 10px;
-   background-color: transparent;
-   border-radius: 3px;
-   border: none;
+  background-color: transparent;
+  border-radius: 3px;
+  border: 1px solid rgb(165, 164, 164);
+  &:hover{
+    border: 1px solid rgba(0, 0, 161, 0.651);
+  }
 }

@@ -3,12 +3,9 @@ import { NotificationsFacade } from '../state/notifications.facade';
 import { TuiPushService } from '@taiga-ui/kit';
 import { TuiAlertService } from '@taiga-ui/core';
 import { WebSoketNotificationService } from './web-soket-notification.service';
-import {
-  take,
-  switchMap,
-} from 'rxjs';
+import { take, switchMap, timer, bufferCount, takeUntil } from 'rxjs';
 import { INotification } from '../models/INotifications';
-
+import { ssrDynamicImportKey } from 'vite/runtime';
 
 @Injectable({
   providedIn: 'root',
@@ -32,11 +29,12 @@ export class GetPushService {
           timestamp: this.time.getCurrentDate(),
         })
         .pipe(
-          take(1),
+          take(3),
+
           switchMap((button) => this.alert.open(button))
         )
-        .subscribe(
-        );
+
+        .subscribe();
     });
   }
 }
